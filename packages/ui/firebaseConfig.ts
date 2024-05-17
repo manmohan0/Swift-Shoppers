@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { FirebaseStorage, getStorage } from "firebase/storage";
 import dotenv from "dotenv"
 
-console.log(dotenv.config())
+dotenv.config()
 
 export const firebaseConfig = {
   apiKey: process.env.API_KEY,
