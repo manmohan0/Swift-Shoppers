@@ -15,13 +15,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  <script src="https://kit.fontawesome.com/5c901d5cc7.js" crossOrigin="anonymous"></script>
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="bg-slate-100 h-full w-full">
+        <div className="bg-slate-100">
           <Appbar/>
-          {children}
+          <div className="w-auto">
+            {children}
+          </div>
         </div>
         </body>
     </html>

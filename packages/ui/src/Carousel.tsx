@@ -4,16 +4,15 @@ import {ChevronLeft, ChevronRight} from "react-feather"
 import { ref, listAll, getDownloadURL } from "firebase/storage";
 import { storage } from '../firebaseConfig';
 import dotenv from "dotenv"
-import { Transform } from "stream";
+import { useFetchImages } from "./useFetchImages";
 
 dotenv.config()
 
 export const Carousel = () => {
 
-    const [imageUrls,setImageUrls] = useState<string[]>([])
-    const [currentImg, setCurrentImg] = useState(0)
+  const [currentImg, setCurrentImg] = useState(0)
+  const [imageUrls,setImageUrls] = useState<string[]>([])
     
-    // console.log(dotenv.config())
     useEffect(() => {
       const fetchImages = async () => {
         const listRef = ref(storage, "gs://swiftshopper01.appspot.com/Carousel")
@@ -29,9 +28,10 @@ export const Carousel = () => {
       };
       fetchImages()
     }, [])
+    const image_urls = useFetchImages("gs://swiftshopper01.appspot.com/Carousel")
     
-
     const prev = () => {
+      console.log(image_urls)
       setCurrentImg((currentImg) => currentImg === 0 ? imageUrls.length - 1 : currentImg - 1)
     }
     const next = () => {
