@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { getDownloadURL, listAll, ref } from "firebase/storage"
 import { storage } from "../firebaseConfig"
+import { ChevronLeft, ChevronRight } from "react-feather"
 
 export const Section = ({title}:{title:string}) => {
 
@@ -27,7 +28,7 @@ export const Section = ({title}:{title:string}) => {
             }
         }
         fetchImages()
-    })
+    },  [])
 
     const image_Names: string[] = []
 
@@ -43,15 +44,25 @@ export const Section = ({title}:{title:string}) => {
 
     return <div className="m-5 bg-white p-3">
         <span className="text-lg font-bold">{title}</span>
-        <div className="flex justify-center mt-5 space-x-3">
-            {imageUrls.map((url, index) => (
-                <div key={index} className="p-5 border border-black ">
-                    <img src={url} alt="Something" />
-                    <span className="text-xs">
-                       {image_Names[index]}
-                    </span>
-                </div>
-            ))}
+        <div className="relative">
+            <div className="flex justify-center mt-5 space-x-3">
+                {imageUrls.map((url, index) => (
+                    <div key={index} className="p-5 w-96 flex flex-col justify-between border border-black ">
+                        <img src={url} alt="Something" />
+                        <span className="text-xs">
+                        {image_Names[index]}
+                        </span>
+                    </div>
+                ))}
+            </div>
+            <div className=" absolute inset-0 flex items-center justify-between">
+                <button className="p-8 rounded-full hover:shadow-md">
+                    <ChevronLeft/>
+                </button>
+                <button className="p-8 rounded-full hover:shadow-md">
+                    <ChevronRight/>
+                </button>
+            </div>
         </div>
     </div>
 }

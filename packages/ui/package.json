@@ -5,7 +5,10 @@
   "exports": {
     "./Appbar": "./src/Appbar.tsx",
     "./Carousel": "./src/Carousel.tsx",
-    "./Section":"./src/Section.tsx"
+    "./Section":"./src/Section.tsx",
+    "./inputBox": "./src/inputBox.tsx",
+    "./Button": "./src/Button.tsx",
+    "./firebaseConfig": "./firebaseConfig.ts"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",

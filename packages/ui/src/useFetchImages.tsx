@@ -21,6 +21,7 @@ export const useFetchImages = (folder_Link:any) => {
           console.error('Error fetching image URLs:', error);
         }
       };
+      fetchImages()
     }, [])
 }
 

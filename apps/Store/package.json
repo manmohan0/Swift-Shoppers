@@ -10,14 +10,23 @@
   },
   "dependencies": {
     "@types/firebase": "*",
+    "@types/nodemailer": "*",
+    "@types/otplib": "*",
+    "axios": "^1.7.2",
+    "bcrypt": "^5.1.1",
     "cors": "*",
     "dotenv": "^16.4.5",
     "firebase": "*",
     "next": "14.2.3",
+    "next-auth": "*",
+    "Next-Auth": "npm:next-auth@^4.24.7",
+    "nodemailer": "^6.9.13",
+    "otplib": "*",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
