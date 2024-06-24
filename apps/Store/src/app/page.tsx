@@ -5,6 +5,7 @@ import { Section } from "@repo/ui/Section"
 import { getDownloadURL, listAll, ref } from "firebase/storage";
 import { useEffect, useState } from "react";
 import { storage } from "@repo/ui/firebaseConfig";
+import { useCookies } from "next-client-cookies"
 
 export default function Home() {
 
@@ -12,10 +13,18 @@ export default function Home() {
   const [imageNames, setImageNames] = useState<string[]>([])
   const [loading, setLoading] = useState(true)
 
+  const cookies = useCookies()
+
+  if (cookies.get("user")) {
+    console.log(cookies.get("user"))
+  }
+
   useEffect(() => {
 
     const fetchImages = async () => {
+
       const listRef = ref(storage, "gs://swiftshopper01.appspot.com/All Sections/Top Section")
+
       try {
         const res = await listAll(listRef)
         const urls = await Promise.all(

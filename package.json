@@ -10,6 +10,7 @@
   "devDependencies": {
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
+    "@repo/db": "*",
     "prettier": "^3.2.5",
     "turbo": "latest"
   },
@@ -22,9 +23,12 @@
     "packages/*"
   ],
   "dependencies": {
+    "@types/pg": "^8.11.6",
     "autoprefixer": "^10.4.19",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "firebase": "^10.12.0",
+    "pg": "^8.12.0",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.3"
   }

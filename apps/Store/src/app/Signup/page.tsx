@@ -1,19 +1,23 @@
 "use client"
 
+import { useState } from "react"
 import { Button } from "@repo/ui/Button"
 import { InputBox } from "@repo/ui/inputBox"
 import axios from "axios"
 import Link from "next/link"
-import { useState } from "react"
+import toast, { Toaster } from "react-hot-toast"
+import { useRouter } from "next/navigation"
 
 export default function Home () {
     
-    const [name, setName] = useState("")
+    const [fName, setFName] = useState("")
+    const [lName, setLName] = useState("")
     const [email, setEmail] = useState("")
     const [phone, setPhone] = useState("")
-    const [generatedOTP, setGeneratedOTP] = useState(false)
-    const [OTP, setOTP] = useState("")
-    const [type] = useState("Signup")
+    const [password, setPassword] = useState("")
+    const [confirmPassword, setConfirmPassword] = useState("")
+
+    const router = useRouter()
 
     const handleEmailInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value)
@@ -23,34 +27,62 @@ export default function Home () {
         setPhone(e.target.value)
     }
 
-    const handleOTPInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setOTP(e.target.value)
+    const handleFNameInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFName(e.target.value)
     }
 
-    const handleNameInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setName(e.target.value)
+    const handleLNameInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setLName(e.target.value)
     }
+
+    const handlePasswordInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setPassword(e.target.value)
+    }
+
+    const handleConfirmPasswordInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setConfirmPassword(e.target.value)
+    }
+
+    const handleSubmit = async () => {
+        try {
+            const result = await axios.post("/api/create_Account", {
+                    fName,
+                    lName,
+                    email,
+                    phone,
+                    password,
+                    confirmPassword
+                })
+
+            if (result && result.data.success && result.data.reason == "") {    
+                toast.success("Account created successfully")
+                router.push("/")
+            }
+            if (result && !result.data.success && result.data.reason == "email is linked to another account") toast.error("Email is linked to another account")
+            if (result && !result.data.success && result.data.reason == "phone is linked to another account") toast.error("Phone Number is linked to another account")
+            if (result && !result.data.success && result.data.reason == "invalid input") toast.error("Invalid Input")
+            if (result && !result.data.success && result.data.reason == "internal server error") toast.error("Internal Server Error")
+                
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
 
     return (
-        <div className="w-64 m-auto flex align-middle justify-center">
-            <div className="p-4 mt-64 shadow-md">
-                <InputBox placeHolder={"Manmohan Wable"} type={"text"} onInput={handleNameInput} label={"Name"}/>
-                <InputBox placeHolder={"Manmohan"} type={"email"} onInput={handleEmailInput} label={"Email"}/>
+        <div className="w-64 m-auto mt-28 flex align-middle justify-center">
+            <div className="p-4 my-auto shadow-md">
+
+                <InputBox placeHolder={"Manmohan"} type={"text"} onInput={handleFNameInput} label={"First Name"}/>
+                <InputBox placeHolder={"Wable"} type={"text"} onInput={handleLNameInput} label={"Last Name"}/>
+                <InputBox placeHolder={"abc@xyz.com"} type={"email"} onInput={handleEmailInput} label={"Email"}/>
                 <InputBox placeHolder={"1234567890"} type={"tel"} onInput={handlePhoneInput}  max={10} label={"Phone"}/>
-                <Button type={"submit"} onClick={ async () => {
-                    try {
-                        await axios.post("/generate_OTP", {
-                            email,
-                            phone,
-                            type
-                        })
-                        setGeneratedOTP(true)
-                    } catch (error) {
-                        console.log(error)
-                    }
-                    }
-                } value="Sign In"/>
+                <InputBox placeHolder={"Password"} type={"password"} onInput={handlePasswordInput} label={"Password"}/>
+                <InputBox placeHolder={"Confirm Password"} type={"password"} onInput={handleConfirmPasswordInput} label={"Confirm Password"}/>
+                <Button type={"submit"} onClick={ handleSubmit } value="Sign Up"/>
+
                 <span className="font-extralight">Already have an account? <Link href={"/Signin"}> Sign In </Link></span>
+                <Toaster/>
             </div>
         </div>
     )
