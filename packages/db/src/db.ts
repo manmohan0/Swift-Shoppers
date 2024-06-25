@@ -8,7 +8,7 @@ const pool = new Pool({
     connectionString: process.env.connectionString
 })
 
-async function connectdb() {
+export default async function connectdb() {
     try {
         const client = await pool.connect()
         console.log("Connected to database")
@@ -18,4 +18,4 @@ async function connectdb() {
     }
 }
 
-export default connectdb
+// export default connectdb

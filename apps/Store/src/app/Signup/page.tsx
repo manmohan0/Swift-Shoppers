@@ -1,12 +1,12 @@
 "use client"
 
+import toast, { Toaster } from "react-hot-toast"
+import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { Button } from "@repo/ui/Button"
 import { InputBox } from "@repo/ui/inputBox"
 import axios from "axios"
 import Link from "next/link"
-import toast, { Toaster } from "react-hot-toast"
-import { useRouter } from "next/navigation"
 
 export default function Home () {
     

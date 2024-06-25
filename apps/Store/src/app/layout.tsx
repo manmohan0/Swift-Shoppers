@@ -22,9 +22,7 @@ export default function RootLayout({
           <div>
             <Appbar/>
             <div className="w-auto h-fit">
-              {/* <CookiesProvider> */}
-                {children}
-              {/* </CookiesProvider> */}
+              {children}
             </div>
           </div>
         </body>

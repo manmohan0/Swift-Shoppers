@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
+import { cookies } from "next/headers";
+import { z } from "zod"
 import dotenv from "dotenv"
 import connectdb from "@repo/db/db"
 import bcrypt from "bcrypt"
-import { string, z } from "zod"
-import { cookies } from "next/headers";
+import jwt from "jsonwebtoken"
 
 dotenv.config()
 
@@ -54,21 +55,19 @@ export async function POST(req: NextRequest, res: NextResponse){
                 const encrypted_password = await bcrypt.hash(password, salt)
                 
                 const query = "INSERT INTO users (firstname, lastname, phone, email, passwords) VALUES ($1, $2, $3, $4, $5)"
-                const result = await client?.query(query, [fName, lName, phone, email, encrypted_password])
-
-                cookies().set("user", JSON.stringify({fName, lName, phone, email}))
-
+                await client?.query(query, [fName, lName, phone, email, encrypted_password])
+                
                 client?.release()
         
                 return NextResponse.json({ success: true, reason: "" })
             } else {
-                return NextResponse.json({success: false, reason: "invalid input"})
+                return NextResponse.json({ success: false, reason: "invalid input" })
             }
         } else {
-            return NextResponse.json({success: false, reason: "internal server error"})
+            return NextResponse.json({ success: false, reason: "internal server error" })
         }
     } catch (error) {
         console.log(error)
-        return NextResponse.json({success: false, reason:""})
+        return NextResponse.json({ success: false, reason:"" })
     }
 }

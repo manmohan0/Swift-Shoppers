@@ -5,19 +5,12 @@ import { Section } from "@repo/ui/Section"
 import { getDownloadURL, listAll, ref } from "firebase/storage";
 import { useEffect, useState } from "react";
 import { storage } from "@repo/ui/firebaseConfig";
-import { useCookies } from "next-client-cookies"
 
 export default function Home() {
 
   const [imageUrls, setImageUrls] = useState<string[]>([])
   const [imageNames, setImageNames] = useState<string[]>([])
   const [loading, setLoading] = useState(true)
-
-  const cookies = useCookies()
-
-  if (cookies.get("user")) {
-    console.log(cookies.get("user"))
-  }
 
   useEffect(() => {
 
