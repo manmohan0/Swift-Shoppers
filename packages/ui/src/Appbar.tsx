@@ -1,11 +1,13 @@
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { getServerSession } from "next-auth"
+import { faUser } from "@fortawesome/free-regular-svg-icons";
 
 export const Appbar = async () => {
 
     const session = await getServerSession()
-
-    if (session) {
+    console.log(session?.user)
+    if (session?.user?.email) {
         return (
             <nav className="w-full shadow py-1">
                 <div className="flex flex-row align-middle w-full h-auto">
@@ -14,10 +16,10 @@ export const Appbar = async () => {
                     </Link>
                     <input className="p-0 px-3 m-2 ml-20 bg-white rounded-md border-gray-300 flex-auto" placeholder="Search for Products, Brands and More" type="text" name="search" id="search" />
                     <div className="p-3 pl-20 pr-0">
-        
                         <Link href="/Signin" className="px-6 py-4 hover:bg-slate-100 cursor-pointer">
-                            <span>
-                                <b>Logged In</b>
+                            <span className="flex">
+                            <FontAwesomeIcon icon={faUser} className="size-6"/>
+                                <b>{session.user?.name}</b>
                             </span>
                         </Link>
                         <Link className="px-6 py-4 hover:bg-slate-100 cursor-pointer" href="#">
