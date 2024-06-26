@@ -8,7 +8,9 @@
     "./Section": "./src/Section.tsx",
     "./inputBox": "./src/inputBox.tsx",
     "./Button": "./src/Button.tsx",
+    "./AuthProvider": "./src/AuthProvider.tsx",
     "./firebaseConfig": "./firebaseConfig.ts"
+
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",

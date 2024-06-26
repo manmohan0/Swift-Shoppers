@@ -6,7 +6,7 @@ import React, { useState } from "react"
 import axios from "axios"
 import { signIn } from "next-auth/react"
 import Link from "next/link"
-import { redirect, useRouter } from "next/navigation"
+import { useRouter } from "next/navigation"
 import toast, { Toaster } from "react-hot-toast"
 
 export default function Home () {
