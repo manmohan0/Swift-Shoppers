@@ -1,6 +1,6 @@
 "use client"
 
-import { Carousel } from "@repo/ui/Carousel"
+import { PCarousel } from "@repo/ui/carousel"
 import { Section } from "@repo/ui/Section"
 import { getDownloadURL, listAll, ref } from "firebase/storage";
 import { useEffect, useState } from "react";
@@ -45,7 +45,7 @@ export default function Home() {
     
     return (
       <div className="bg-slate-100">
-      <div className="p-5 px-20 mt-2 bg-yellow-300 flex space-x-16 justify-center">
+      <div className="p-5 px-20 bg-yellow-300 flex space-x-16 justify-center">
         {imageUrls.map((url, index) => (
           <div key={index} className="flex flex-col w-64 bg-white px-4 justify-center">
             <img src={url} alt="Grocery" className="w-16 h-16 m-auto"/>
@@ -53,7 +53,7 @@ export default function Home() {
           </div>
         ))}
       </div>
-      <Carousel/>
+      <PCarousel/>
       <Section title="Best of Electronics"/>
     </div>
   );

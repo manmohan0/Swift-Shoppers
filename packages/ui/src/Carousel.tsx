@@ -7,7 +7,7 @@ import dotenv from "dotenv"
 
 dotenv.config()
 
-export const Carousel = () => {
+export const PCarousel = () => {
 
   const [currentImg, setCurrentImg] = useState(0)
   const [imageUrls,setImageUrls] = useState<string[]>([])

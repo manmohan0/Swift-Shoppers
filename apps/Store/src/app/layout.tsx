@@ -18,18 +18,16 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-            {/* <SessionProvider> */}
       <body className={inter.className}>
-          <div>
             <AuthProvider>
               <Appbar/>
-              <div className="w-auto h-fit">
-                {children}
+                <div className="bg-slate-100">
+                  <div className="w-auto h-fit mx-5">
+                    {children}
+                  </div>
               </div>
             </AuthProvider>
-          </div>
         </body>
-            {/* </SessionProvider> */}
     </html>
   );
 }

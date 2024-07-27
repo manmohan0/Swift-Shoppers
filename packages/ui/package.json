@@ -4,13 +4,12 @@
   "private": true,
   "exports": {
     "./Appbar": "./src/Appbar.tsx",
-    "./Carousel": "./src/Carousel.tsx",
+    "./carousel": "./src/Carousel.tsx",
     "./Section": "./src/Section.tsx",
     "./inputBox": "./src/inputBox.tsx",
     "./Button": "./src/Button.tsx",
     "./AuthProvider": "./src/AuthProvider.tsx",
     "./firebaseConfig": "./firebaseConfig.ts"
-
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
@@ -34,10 +33,17 @@
     "@fortawesome/free-regular-svg-icons": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "@radix-ui/react-slot": "^1.1.0",
     "@types/firebase": "^3.2.1",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
     "dotenv": "^16.4.5",
+    "embla-carousel-react": "^8.1.7",
     "firebase": "^10.12.0",
+    "lucide-react": "^0.416.0",
     "react-feather": "^2.0.10",
-    "tailwindcss": "^3.4.3"
+    "tailwind-merge": "^2.4.0",
+    "tailwindcss": "^3.4.3",
+    "tailwindcss-animate": "^1.0.7"
   }
 }
