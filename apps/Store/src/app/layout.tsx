@@ -2,11 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Appbar } from "@repo/ui/Appbar";
-import { CookiesProvider } from "react-cookie";
-import { getServerSession } from "next-auth";
 import { AuthProvider } from "@repo/ui/AuthProvider"
-import { SessionProvider } from "next-auth/react";
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
