@@ -4,7 +4,6 @@
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUser } from "@fortawesome/free-regular-svg-icons";
-import { getServerSession } from "next-auth/next"
 import { useSession } from "next-auth/react"
 import React = require("react");
 
