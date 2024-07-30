@@ -9,6 +9,9 @@
     "./inputBox": "./src/inputBox.tsx",
     "./Button": "./src/Button.tsx",
     "./AuthProvider": "./src/AuthProvider.tsx",
+    "./SearchButton": "./src/SearchButton.tsx",
+    "./GreenBorderButton": "./src/GreenBorderButton.tsx",
+    "./OrangeBorderButton": "./src/OrangeBorderButton.tsx",
     "./firebaseConfig": "./firebaseConfig.ts"
   },
   "scripts": {

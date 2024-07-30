@@ -32,9 +32,9 @@ export const Appbar = () => {
                                 Cart
                             </span>
                         </Link>
-                        <Link className="px-6 py-4 hover:bg-slate-100 cursor-pointer" href="#">
-                            <span className="">
-                                Become a Seller
+                        <Link className="px-6 py-4 hover:bg-slate-100 cursor-pointer mr-3" href="/sell/dashboard">
+                            <span>
+                                Sell
                             </span>
                         </Link>
                     </div>
@@ -59,11 +59,6 @@ export const Appbar = () => {
                         <Link className="px-6 py-4 hover:bg-slate-100 cursor-pointer" href="#">
                             <span>
                                 Cart
-                            </span>
-                        </Link>
-                        <Link className="px-6 py-4 hover:bg-slate-100 cursor-pointer" href="#">
-                            <span className="">
-                                Become a Seller
                             </span>
                         </Link>
                     </div>
