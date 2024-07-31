@@ -20,11 +20,11 @@ export default async function RootLayout({
     <html lang="en">
       <body className={inter.className}>
             <AuthProvider>
-              <Appbar/>
-                <div className="bg-slate-100">
-                  <div className="w-auto h-fit mx-5">
-                    {children}
-                  </div>
+              <div className="bg-slate-100 min-h-screen">
+                <Appbar/>
+                <div className="w-auto h-fit mx-5">
+                  {children}
+                </div>
               </div>
             </AuthProvider>
         </body>

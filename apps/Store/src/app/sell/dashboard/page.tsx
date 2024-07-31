@@ -8,9 +8,13 @@ import { GreenBorderButton } from "@repo/ui/GreenBorderButton"
 import { OrangeBorderButton } from "@repo/ui/OrangeBorderButton"
 import { Checkbox } from "@/components/ui/checkbox"
 import { faEye, faStar } from "@fortawesome/free-regular-svg-icons";
+import { useRouter } from "next/navigation";
+import dotenv from "dotenv"
 
+dotenv.config()
 
 export default function Dashboard () {
+    const router = useRouter()
     return (
       <>
         <div className="m-4 bg-white shadow-md">
@@ -26,7 +30,7 @@ export default function Dashboard () {
             </div>
             <div className="flex justify-between">
                 <div className="mx-5 flex space-x-4">
-                    <GreenBorderButton type={"button"} value={"Add"} onClick={() => console.log("Add button clicked")}/>
+                    <GreenBorderButton type={"button"} value={"Add"} onClick={() => router.push(`/sell/Add`)}/>
                     <OrangeBorderButton type={"button"} value={"Delete"} onClick={() => console.log("Delete button clicked")}/>
                 </div>
                 <div className="flex">
