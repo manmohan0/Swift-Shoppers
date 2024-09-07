@@ -58,8 +58,8 @@ export const Section = ({title}:{title:string}) => {
                 <Carousel>
                 <CarouselContent>
                         {imageUrls.map((url, index) => (
-                            <CarouselItem className="basis-1/8">    
-                                <div key={index} className="p-4 m-1 h-40 w-44 flex flex-col justify-between border ">
+                            <CarouselItem key={index} className="basis-1/8">    
+                                <div  className="p-4 m-1 h-40 w-44 flex flex-col justify-between border ">
                                     <img src={url} alt="Something" />
                                     <span className="text-xs">
                                     {image_Names[index]}

@@ -2,16 +2,13 @@
 
 import { faEllipsis, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { SearchButton } from "@repo/ui/SearchButton";
-import { InputBox } from "@repo/ui/inputBox";
-import { GreenBorderButton } from "@repo/ui/GreenBorderButton"
-import { OrangeBorderButton } from "@repo/ui/OrangeBorderButton"
+import { SearchButton } from "../components/SearchButton";
+import { SearchBox } from "../components/searchBox";
+import { GreenBorderButton } from "../components/GreenBorderButton"
+import { OrangeBorderButton } from "../components/OrangeBorderButton"
 import { Checkbox } from "@/components/ui/checkbox"
 import { faEye, faStar } from "@fortawesome/free-regular-svg-icons";
 import { Navigate } from "react-router-dom";
-// import dotenv from "dotenv"
-
-// dotenv.config()
 
 export default function Dashboard () {
 
@@ -24,7 +21,7 @@ export default function Dashboard () {
                 </div>
                 <div className="flex h-10 m-auto content-center border-2">
                     <FontAwesomeIcon icon={faMagnifyingGlass} className="p-2 my-auto"/>
-                    <InputBox type={"text"} placeHolder={"Search"} value={""} onInput={() => console.log("searched")}/>
+                    <SearchBox type={"text"} placeHolder={"Search"} value={""} onInput={() => console.log("searched")}/>
                     <SearchButton type={"button"} value={"Search"} onClick={() => console.log("Search Clicked")}/>
                 </div>
             </div>

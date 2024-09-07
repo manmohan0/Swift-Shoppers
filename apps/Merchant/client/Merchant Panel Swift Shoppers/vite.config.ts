@@ -12,6 +12,7 @@ export default defineConfig({
   },
   css: {
     postcss: './postcss.config.js',
+    // postcss: './tailwind.config.js'
   },
 
 })

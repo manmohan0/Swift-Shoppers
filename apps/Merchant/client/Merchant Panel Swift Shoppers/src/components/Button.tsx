@@ -1,5 +1,3 @@
-// import React from "react";
-
 import React from "react";
 
 interface ButtonProps {
@@ -8,10 +6,10 @@ interface ButtonProps {
     onClick: React.MouseEventHandler
 }
 
-export const GreenBorderButton = ({type, value, onClick}: ButtonProps) => {
+export const Button = ({type, value, onClick}: ButtonProps) => {
         return (
             <div className="flex cursor-pointer justify-center m-0">
-                <button className="border-green-600 border-2 px-8 py-3 w-max" onClick={onClick} type={type} >{value}</button>
+                <button className=" bg-orange-300 p-2 w-max" onClick={onClick} type={type} >{value}</button>
             </div>
         )
 }
