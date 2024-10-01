@@ -19,6 +19,7 @@
       "@styles/*": ["./styles/*"],
       "@utils/*": ["./utils/*"]
   },
+  "esModuleInterop": true
   }
   
 }

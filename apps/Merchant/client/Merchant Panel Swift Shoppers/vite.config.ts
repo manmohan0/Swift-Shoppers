@@ -11,8 +11,22 @@ export default defineConfig({
     },
   },
   css: {
-    postcss: './postcss.config.js',
-    // postcss: './tailwind.config.js'
+    postcss: './postcss.config.js'
   },
-
+  server: {
+    proxy: {
+      // Proxy all requests starting with /auth to the backend server
+      '/auth': {
+        target: 'http://localhost:3000',  // Replace with your backend server URL
+        changeOrigin: true,               // Handle virtual hosted sites
+        secure: false,
+        rewrite: (path) => path.replace(/^\/auth/, '/auth')  // Optional: adjust the path if necessary
+      },
+      // You can add more proxies if you have other API routes
+    },
+    cors: {
+      origin: 'http://localhost:3000', // Allow localhost:3000
+      credentials: true,               // Allow credentials (cookies, etc.)
+    },
+  }
 })

@@ -1,10 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import { cookies } from "next/headers";
 import { z } from "zod"
 import dotenv from "dotenv"
 import connectdb from "@repo/db/db"
 import bcrypt from "bcrypt"
-import jwt from "jsonwebtoken"
 
 dotenv.config()
 

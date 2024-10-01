@@ -8,8 +8,8 @@ interface ButtonProps {
 
 export const Button = ({type, value, onClick}: ButtonProps) => {
         return (
-            <div className="flex cursor-pointer justify-center m-0">
-                <button className=" bg-orange-300 p-2 w-max" onClick={onClick} type={type} >{value}</button>
+            <div className="flex justify-center m-0">
+                <button className="bg-orange-300 cursor-pointer p-2 w-max" onClick={onClick} type={type} >{value}</button>
             </div>
         )
 }

@@ -54,7 +54,7 @@ export const authOptions: NextAuthOptions = {
         const compare_Password = await bcrypt.compare(credentials?.password as string, users?.rows[0].passwords)
         
         const user = users?.rows[0]
-        
+        await client?.release()
         if (compare_Password) {
           return user
         } else {

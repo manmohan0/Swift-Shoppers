@@ -9,9 +9,7 @@ import { OrangeBorderButton } from "../components/OrangeBorderButton"
 import { Checkbox } from "@/components/ui/checkbox"
 import { faEye, faStar } from "@fortawesome/free-regular-svg-icons";
 import { Navigate } from "react-router-dom";
-
 export default function Dashboard () {
-
     return (
       <>
         <div className="m-4 bg-white shadow-md">

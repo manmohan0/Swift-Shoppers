@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-vars */
 export enum createUserState {
-    user_info = "user info",
-    business_info = "business info",
-    account_info = "account info"
+    user_info,
+    business_info,
+    account_info
 }
